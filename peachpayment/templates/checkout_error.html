@@ -1,0 +1,15 @@
+<!-- checkout_error.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+    <div class="my-5">
+        <h1 class="text-danger">Payment Error</h1>
+        <p class="lead">Sorry, there was a problem with your payment:</p>
+        <p>{{ error }}</p>
+        
+        <a href="{% url 'checkout' %}" class="btn btn-primary mt-3">Try Again</a>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary mt-3">Return to Shop</a>
+    </div>
+</div>
+{% endblock %}

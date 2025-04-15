@@ -1,0 +1,40 @@
+<!-- payment.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Complete Your Payment</h1>
+    
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5>Payment Details</h5>
+                </div>
+                <div class="card-body">
+                    <form action="{{ request.build_absolute_uri|safe }}payment-result/" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Order Summary</h5>
+                </div>
+                <div class="card-body">
+                    <p>Order ID: {{ order.id }}</p>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <strong>Total:</strong>
+                        <strong>R{{ order.total_amount }}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Include the Peach Payments JS library -->
+<script src="{{ payment_url }}"></script>
+{% endblock %}
